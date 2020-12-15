@@ -23,7 +23,6 @@ export async function getStaticProps({ params }) {
 		content_type: 'launch',
 		'sys.id': params.id,
 	})
-	console.log(data)
 	return {
 		props: {
 			launch: data.items[0],
