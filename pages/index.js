@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 
@@ -30,7 +29,6 @@ export default function Home({ launches }) {
 			<div>
 				<Head>
 					<title>Past Space X Launches</title>
-					<link rel='icon' href='/favicon.ico' />
 				</Head>
 
 				<main className={styles.main}>
@@ -42,9 +40,6 @@ export default function Home({ launches }) {
 								className={styles.card}
 								key={launch.sys.id}
 								type='button'>
-								{/* <Link href={'/launch/' + launch.sys.id}>
-									<a className={styles.linkname}>{launch.fields.name}</a>
-								</Link> */}
 								<h3>{launch.fields.name}</h3>
 								<p>{new Date(launch.fields.launchDate).toLocaleString().split(',')}</p>
 							</button>
