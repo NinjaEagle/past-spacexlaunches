@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
@@ -20,7 +19,6 @@ export async function getStaticPaths() {
 	}
 }
 export async function getStaticProps({ params }) {
-	console.log('params', params)
 	let data = await client.getEntries({
 		content_type: 'launch',
 		'sys.id': params.id,
@@ -47,7 +45,6 @@ export default function Launch({ launch }) {
 		webcastVideoUrl,
 	} = launch.fields
 	// convert date and time based on browser's local time
-	// console.log('Launch Date', launchDate)
 	let localDateTime = new Date(launchDate).toLocaleString().split(',')
 	// embed video links
 	// if (launchVideoUrl != null && launchVideoUrl != '') {
@@ -60,7 +57,6 @@ export default function Launch({ launch }) {
 	//  src="https://www.youtube.com/embed/0a_00nJ_Y88"
 	const handleClick = (e) => {
 		e.preventDefault()
-		console.log('clicked')
 		router.push('/')
 	}
 	return (

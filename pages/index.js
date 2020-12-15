@@ -20,7 +20,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ launches }) {
-	console.log(launches)
 	const router = useRouter()
 
 	const handleClick = (launch) => {
