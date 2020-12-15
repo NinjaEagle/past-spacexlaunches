@@ -1,19 +1,25 @@
 .backpage {
 	color: white;
 }
+.button {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
 .container {
 	min-height: 100vh;
 	/* padding: 0 0.5rem; */
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: flex-end;
 	background: url('../public/spaceX-falcon-heavyspacerocket.jpg');
 	background-size: 100% 100%;
 }
 
 .details {
-	background: url('../public/spacex2.jpg');
+	/* background: url('../public/spacex2.jpg'); */
+	background: url('../public/darkspacex2.jpg');
+	background-size: cover;
 	/* background: #005288; */
 	display: flex;
 	flex-direction: column;
@@ -23,30 +29,29 @@
 	color: white;
 }
 
+/* each launch info details */
+.info {
+	margin-bottom: 30px;
+}
+.linkname {
+	color: black;
+	display: inline-block;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	margin: 10px 0px;
+}
+.linkname:hover {
+	border-bottom: 1px solid;
+	background: #a7a9ac;
+}
+
 .main {
 	padding: 5rem 0;
+	color: white;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.footer {
-	width: 100%;
-	height: 100px;
-	border-top: 1px solid #eaeaea;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.footer img {
-	margin-left: 0.5rem;
-}
-
-.footer a {
-	display: flex;
 	justify-content: center;
 	align-items: center;
 }
@@ -65,7 +70,7 @@
 .title {
 	margin: 0;
 	line-height: 1.15;
-	font-size: 4rem;
+	font-size: 1.5rem;
 }
 
 .title,
@@ -98,21 +103,20 @@
 
 .card {
 	margin: 1rem;
-	flex-basis: 45%;
+	flex-basis: 25%;
 	padding: 1.5rem;
-	text-align: left;
-	color: inherit;
+	text-align: center;
+	/* color: white; */
 	text-decoration: none;
 	border: 1px solid #eaeaea;
-	border-radius: 10px;
+	border-radius: 15px;
 	transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-	color: #0070f3;
-	border-color: #0070f3;
+	border-color: #a7a9ac;
 }
 
 .card h3 {

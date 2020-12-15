@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
 
 let client = require('contentful').createClient({
 	space: process.env.NEXT_CONTENTFUL_SPACE_ID,
@@ -14,11 +15,17 @@ export async function getStaticProps() {
 		props: {
 			launches: data.items,
 		},
+		revalidate: 1,
 	}
 }
 
 export default function Home({ launches }) {
 	console.log(launches)
+	const router = useRouter()
+
+	const handleClick = (launch) => {
+		router.push('/launch/' + launch.sys.id)
+	}
 	return (
 		<div className={styles.container}>
 			<div>
@@ -31,11 +38,17 @@ export default function Home({ launches }) {
 					<h1>Past Space X Launches</h1>
 					<div className={styles.grid}>
 						{launches.map((launch) => (
-							<div className={styles.card} key={launch.sys.id}>
-								<Link href={'/launch/' + launch.sys.id}>
-									<a>{launch.fields.name}</a>
-								</Link>
-							</div>
+							<button
+								onClick={() => handleClick(launch)}
+								className={styles.card}
+								key={launch.sys.id}
+								type='button'>
+								{/* <Link href={'/launch/' + launch.sys.id}>
+									<a className={styles.linkname}>{launch.fields.name}</a>
+								</Link> */}
+								<h3>{launch.fields.name}</h3>
+								<p>{new Date(launch.fields.launchDate).toLocaleString().split(',')}</p>
+							</button>
 						))}
 					</div>
 				</main>
